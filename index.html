@@ -13,17 +13,14 @@ window.onload = function() {
     canvasContext = canvas.getContext('2d');
 // calculate frame rate 
     var framesPerSecond = 30;   
-    setInterval(callBoth, 1000/framesPerSecond); 
-    callBoth(); 
-    callBoth(); 
-    callBoth(); 
+    setInterval(function() {
+        moveEverything();  
+        drawEverything(); 
+    }, 1000/framesPerSecond); 
+
 
 }
 
-function callBoth() {
-    moveEverything();  
-    drawEverything(); 
-}
 
 function moveEverything(){
     ballX = ballX + 5;
