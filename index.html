@@ -5,7 +5,8 @@ some text here
 <script>
 var canvas;
 var canvasContext;
-var ballX = 50; 
+var ballX = 50;
+var ballSpeedX = 5;  
 
 window.onload = function() {
 	
@@ -23,7 +24,8 @@ window.onload = function() {
 
 
 function moveEverything(){
-    ballX = ballX + 5;
+    ballX = ballX + ballSpeedX;
+    ballSpeedX = ballSpeedX + 1; 
 }
 function drawEverything() {
      
