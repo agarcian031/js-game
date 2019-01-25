@@ -46,6 +46,8 @@ window.onload = function() {
 }//end window.onload
 
 function ballReset() {
+    ballSpeedX = -ballSpeedX;
+
     ballX = canvas.width/2; 
     ballY = canvas.height/2;
 }
@@ -56,7 +58,6 @@ function moveEverything(){
     ballY = ballY + ballSpeedY;
 
     if (ballX < 0) {
-        //ballSpeedX = -ballSpeedX;
         ballReset();  
     }
     if (ballX > canvas.width) {
