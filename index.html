@@ -13,11 +13,16 @@ window.onload = function() {
     canvasContext = canvas.getContext('2d');
 // calculate frame rate 
     var framesPerSecond = 30;   
-    setInterval(drawEverything, 1000/framesPerSecond); 
-    drawEverything(); 
-    drawEverything(); 
-    drawEverything(); 
+    setInterval(callBoth, 1000/framesPerSecond); 
+    callBoth(); 
+    callBoth(); 
+    callBoth(); 
 
+}
+
+function callBoth() {
+    moveEverything();  
+    drawEverything(); 
 }
 
 function moveEverything(){
