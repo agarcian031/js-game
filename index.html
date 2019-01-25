@@ -10,6 +10,10 @@ var ballY = 50;
 var ballSpeedX = 10;  
 var ballSpeedY = 4;
 
+var paddle1Y = 250; 
+const PADDLE_HEIGHT = 100; //can't be changed while game is taking place
+
+
 window.onload = function() {
 	
 	canvas = document.getElementById('gameCanvas');
@@ -22,7 +26,7 @@ window.onload = function() {
     }, 1000/framesPerSecond); 
 
 
-}
+}//end window.onload
 
 
 function moveEverything(){
@@ -43,9 +47,9 @@ function moveEverything(){
     }
     if (ballY > canvas.height) {
         ballSpeedY = -ballSpeedY; 
-    }
+    }//end if 
     
-}
+}// end moveEverything 
 function drawEverything() {
     //next line blanks out the screen with black 
     colorRect(0,0,canvas.width,canvas.height, 'black');
@@ -56,20 +60,20 @@ function drawEverything() {
     //next line draws the ball 
     colorCircle(ballX, ballY, 10, 'white'); 
 
-}
+}// end drawEverything 
 
 function colorCircle(centerX, centerY, radius, drawColor) {
     canvasContext.fillStyle = drawColor; 
     canvasContext.beginPath(); 
     canvasContext.arc(centerX, centerY,  radius, 0, Math.PI*2, true);
     canvasContext.fill(); 
-}
+}//end colorCircle
 
 function colorRect (leftX, topY, width, height, drawColor) {
     canvasContext.fillStyle = drawColor;
 	canvasContext.fillRect(leftX, topY, width, height);
 	
-}
+}// end colorRect 
 
 </script>
 
