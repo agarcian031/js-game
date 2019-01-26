@@ -12,6 +12,7 @@ var ballSpeedY = 4;
 
 var paddle1Y = 250; 
 var paddle2Y = 250;
+const PADDLE_THICKNESS = 10;
 const PADDLE_HEIGHT = 100; //can't be changed while game is taking place
 
 
@@ -88,10 +89,10 @@ function drawEverything() {
     colorRect(0,0,canvas.width,canvas.height, 'black');
 
     //this is left player paddle 
-    colorRect(0,paddle1Y,10,PADDLE_HEIGHT, 'pink');
+    colorRect(0,paddle1Y,PADDLE_THICKNESS,PADDLE_HEIGHT, 'pink');
 
     //this is right computer paddle 
-    colorRect(canvas.width-10,paddle2Y,10,PADDLE_HEIGHT, 'pink');
+    colorRect(canvas.width-PADDLE_THICKNESS,paddle2Y,PADDLE_THICKNESS,PADDLE_HEIGHT, 'pink');
 
     //next line draws the ball 
     colorCircle(ballX, ballY, 10, 'pink'); 
