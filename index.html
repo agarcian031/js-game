@@ -1,6 +1,6 @@
 <html>
 
-<canvas id="gameCanvas" width="800" height="600"></canvas>
+<canvas id="gameCanvas" width="800" height="600" style="border:20px solid #333333;"></canvas>
 
 <script>
 var canvas;
@@ -10,9 +10,12 @@ var ballY = 50;
 var ballSpeedX = 10;  
 var ballSpeedY = 4;
 
+var player1Score = 0; 
+var player2Score = 0; 
+
 var paddle1Y = 250; 
 var paddle2Y = 250;
-const PADDLE_THICKNESS = 10;
+const PADDLE_THICKNESS = 12;
 const PADDLE_HEIGHT = 100; //can't be changed while game is taking place
 
 
@@ -43,7 +46,7 @@ window.onload = function() {
 
     canvas.addEventListener('mousemove', function(evt) {
         var mousePos = calculateMousePos(evt); 
-        paddle2Y = mousePos.y-(PADDLE_HEIGHT/2); 
+        paddle1Y = mousePos.y-(PADDLE_HEIGHT/2); 
     }); 
 
 
@@ -56,10 +59,22 @@ function ballReset() {
     ballY = canvas.height/2;
 }
 
+function computerMovement() {
+    var paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2); 
+    //if padding is above or below the ball, it will move up/down
+    if(paddle2YCenter < ballY-35) {
+        paddle2Y +=  6; 
+    } else if(paddle2YCenter > ballY+35) {
+        paddle2Y -= 6; 
+    }
+}
 
 function moveEverything(){
-    ballX = ballX + ballSpeedX;
-    ballY = ballY + ballSpeedY;
+
+    computerMovement(); 
+
+    ballX += ballSpeedX;
+    ballY += ballSpeedY;
 
     if (ballX < 0) {
         if(ballY > paddle1Y && 
@@ -67,6 +82,8 @@ function moveEverything(){
                 ballSpeedX = -ballSpeedX; 
             } else {
                 ballReset();
+                player2Score++; 
+
             }//end else 
           
     }
@@ -76,6 +93,8 @@ function moveEverything(){
                 ballSpeedX = -ballSpeedX; 
             } else {
                 ballReset();
+                player1Score++; 
+
             }//end else
     }
 
@@ -101,6 +120,10 @@ function drawEverything() {
 
     //next line draws the ball 
     colorCircle(ballX, ballY, 10, 'pink'); 
+
+    //add text to screen for scoring 
+    canvasContext.fillText(player1Score, 100, 100);
+    canvasContext.fillText(player2Score, canvas.width-100, 100);
 
 }// end drawEverything 
 
