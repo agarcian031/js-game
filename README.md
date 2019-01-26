@@ -1,6 +1,6 @@
 # js-game
 
-#Preview [HERE](https://agarcian031.github.io/js-game/)
+# Preview [HERE](https://agarcian031.github.io/js-game/)
 ---
 ## Udemy | [Code Your First Game: Arcade Classic in JavaScript ](https://www.udemy.com/code-your-first-game/learn/v4/content)
 ---
