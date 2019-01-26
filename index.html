@@ -43,7 +43,7 @@ window.onload = function() {
 
     canvas.addEventListener('mousemove', function(evt) {
         var mousePos = calculateMousePos(evt); 
-        paddle1Y = mousePos.y-(PADDLE_HEIGHT/2); 
+        paddle2Y = mousePos.y-(PADDLE_HEIGHT/2); 
     }); 
 
 
@@ -71,7 +71,12 @@ function moveEverything(){
           
     }
     if (ballX > canvas.width) {
-        ballSpeedX = -ballSpeedX; 
+        if(ballY > paddle2Y && 
+            ballY < paddle2Y+PADDLE_HEIGHT) {
+                ballSpeedX = -ballSpeedX; 
+            } else {
+                ballReset();
+            }//end else
     }
 
 
